@@ -12,7 +12,7 @@
 * Создайте новый проект pipeline.
 * Перепишите сборку из задания 1 на declarative(в виде кодa)
 
-  ```
+```
 pipeline {
  agent any
  stages {
@@ -31,8 +31,9 @@ pipeline {
   }
  }
 }
-  ```
-  ![](https://github.com/NicholasKrupenin/netology_git/blob/main/CI_CD/img/2_task.png)
+```
+
+![](https://github.com/NicholasKrupenin/netology_git/blob/main/CI_CD/img/2_task.png)
 
 ## Задание 3.
 * Установите на машину Nexus.
