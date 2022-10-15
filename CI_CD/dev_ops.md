@@ -5,8 +5,8 @@
 * Используя свой аккаунт на GitHub, сделайте себе форк репозитория: https://github.com/netology-code/sdvps-materials.git. Там же лежит дополнительный материал для выполнения ДЗ.
 * Создайте в дженкинсе freestyle проект, подключите получившийся репозиторий к нему и произведите запуск тестов и сборку проекта go test . и docker build .
 
-![[]]
-![[]]
+![](https://github.com/NicholasKrupenin/netology_git/blob/main/CI_CD/img/1_task.png)
+![](https://github.com/NicholasKrupenin/netology_git/blob/main/CI_CD/img/1_task_2.png)
 
 ## Задание 2.
 * Создайте новый проект pipeline.
@@ -32,7 +32,7 @@ pipeline {
  }
 }
   ```
-  ![[]]
+  ![](https://github.com/NicholasKrupenin/netology_git/blob/main/CI_CD/img/2_task.png)
 
 ## Задание 3.
 * Установите на машину Nexus.
