@@ -24,6 +24,6 @@
 ## Задание 3.
 С помощью Yandex Monitoring создайте дашборд, на котором видны основные метрики сетевого подключения вашей виртуальной машины
 
-~~Yandex~~ Digitalocean
+> ~~Yandex~~ Digitalocean
 
 ![dashboard](https://github.com/NicholasKrupenin/netology_git/blob/main/Monitoring/img/dashboard.jpg)
