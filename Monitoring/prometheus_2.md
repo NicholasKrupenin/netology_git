@@ -15,4 +15,4 @@
 ### Задание 3.
 Активируйте экспортер метрик в Docker и подключите его к Prometheus.
 
-![](https://github.com/NicholasKrupenin/netology_git/blob/main/Monitoring/img/prometheus_2_2.jpg)
+![](https://github.com/NicholasKrupenin/netology_git/blob/main/Monitoring/img/prometheus_2_1.2.jpg)
