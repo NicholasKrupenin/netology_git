@@ -13,7 +13,7 @@ WHERE LEFT (a.district, 1) = "K" AND RIGHT (a.district, 1) = "a" AND NOT INSTR(a
 ```sql
 SELECT p.amount, p.payment_date 
 FROM payment p 
-WHERE p.amount > 10 AND  p.payment_date BETWEEN '2005-05-15 00:00:00' AND '2005-06-19 00:00:00';
+WHERE p.amount > 10 AND  p.payment_date BETWEEN '2005-06-15 00:00:00' AND '2005-06-19 00:00:00';
 ```
 
 ---
