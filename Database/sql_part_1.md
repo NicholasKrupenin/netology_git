@@ -31,7 +31,7 @@ LIMIT 5;
 
 ```sql
 SELECT LOWER(REPLACE(c.first_name, 'LL', 'PP')) name 
-from customer c 
+FROM customer c 
 WHERE c.first_name = 'KELLY' OR c.first_name = 'WILLIE';
 ```
 
