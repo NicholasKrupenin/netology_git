@@ -1,6 +1,6 @@
 ### Задание 1.
 
-# ![](/Database/img/sql_1jpg.png)
+<!-- ![](/Database/img/sql_1jpg.png) -->
 
 ```sql
 SELECT DISTINCT a.district
