@@ -46,7 +46,7 @@ JOIN rental r ON r.staff_id  = s.staff_id
 GROUP BY CONCAT(s.first_name, ' ',s.last_name);
 ```
 ---
-### <span style="color:yellow">Задание 5.</span> :suspect:
+### <span style="color:yellow">Задание 5.</span> :shipit:
 
 ```sql
 SELECT f.title  
