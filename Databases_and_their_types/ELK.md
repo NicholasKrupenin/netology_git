@@ -35,9 +35,87 @@
 ## Задание 3. Logstash.
 Установить и запустить Logstash и Nginx. С помощью Logstash отправить access-лог nginx в Elasticsearch.
 
-![](https://github.com/NicholasKrupenin/netology_git/blob/main/Databases_and_their_types/img/nginx.jpg)
+![](/Databases_and_their_types/img/nginx_2.jpg)
 
 ## Задание 4. Filebeat.
 Установить и запустить Filebeat. Переключить поставку логов Nginx с Logstash на Filebeat.
 
 > Так же как и в предыдущем.
+
+---
+
+'''yml
+version: '3.7'
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.16.1
+    volumes:
+      - ./configs/elasticsearch/config.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    environment:
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+      ELASTIC_USERNAME: "elastic"
+      ELASTIC_PASSWORD: "Awesome123"
+      discovery.type: single-node
+    networks:
+      - elk
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  logstash:
+    image: logstash:7.16.2
+    volumes:
+      - ./configs/logstash/config.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./configs/log/nginx:/var/log/nginx
+      - ./configs/pipe/pipelines.yml:/usr/share/logstash/config/pipelines.yml:ro
+      - ./configs/pipe/pipelines:/usr/share/logstash/config/pipelines:ro
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    ports:
+      - "5044:5044"
+      - "5000:5000"
+      - "9600:9600"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    image: kibana:7.16.1
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ./configs/kibana/config.yml:/usr/share/kibana/config/kibana.yml:ro
+    networks:
+      - elk
+    ports:
+      - "5601:5601"
+
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ./configs/log/nginx:/var/log/nginx 
+    networks:
+      - elk
+    ports:
+      - "8080:80"
+
+  beats:
+    image: elastic/filebeat:7.16.2
+    volumes:
+      - ./configs/filebeat/config.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./configs/log/nginx:/var/log/nginx
+    networks:
+      - elk
+    ports:
+      - "5044:5044"
+    depends_on:
+    - elasticsearch
+
+networks:
+  elk:
+    driver: bridge
+'''
