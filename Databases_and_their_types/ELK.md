@@ -44,7 +44,7 @@
 
 ---
 
-'''yml
+```yml
 version: '3.7'
 
 services:
@@ -118,4 +118,4 @@ services:
 networks:
   elk:
     driver: bridge
-'''
+```
