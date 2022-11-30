@@ -1,15 +1,16 @@
-## Задание 1. Установка RabbitMQ
-Используя Vagrant или VirtualBox, создайте виртуальную машину и установите RabbitMQ. Добавьте management plug-in и зайдите в веб интерфейс.
+## <span sytle="color:yellow">Задание 1.</span>
 
-![]()
+![](/Databases_and_their_types/img/rabbit_1.jpg)
 
 ---
-## Задание 2. Отправка и получение сообщений.
+### <span style="color:yellow">Задание 2.</span>
 
-![producer]()
+
+![producer](/Databases_and_their_types/img/rabbit_2.jpg)
 -
-![consumer]()
+![consumer](/Databases_and_their_types/img/rabbit_3.jpg)
 
 ---
-## Задание 3. Подготовка HA кластера
+### <span style="color:yellow">Задание 3.</span>
+
 
