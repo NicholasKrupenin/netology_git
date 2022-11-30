@@ -7,7 +7,6 @@
 
 
 ![](/Databases_and_their_types/img/rabbit_2.jpg)
--
 ![](/Databases_and_their_types/img/rabbit_3.jpg)
 
 ---
