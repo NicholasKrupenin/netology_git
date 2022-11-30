@@ -1,4 +1,4 @@
-## <span sytle="color:yellow">Задание 1.</span>
+### <span sytle="color:yellow">Задание 1.</span>
 
 ![](/Databases_and_their_types/img/rabbit_1.jpg)
 
