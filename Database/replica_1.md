@@ -7,4 +7,5 @@ M-M действует как M-S со следующим отличием: ка
 ### <span style="color:yellow">Задание 2.</span>
 
 ![](/Database/img/replica_1.png)
+---
 ![](/Database/img/replica_2.png)
