@@ -8,4 +8,4 @@
 ---
 ### <span style="color:yellow"> Задание 2. </span>
 
-![](/Database/img/Untitled Diagram.drawio.png)
+![](/Database/img/horizon.drawio.png)
