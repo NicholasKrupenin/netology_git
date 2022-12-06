@@ -34,5 +34,3 @@ SELECT LOWER(REPLACE(c.first_name, 'LL', 'PP')) name
 FROM customer c 
 WHERE c.first_name = 'KELLY' OR c.first_name = 'WILLIE';
 ```
-
-
