@@ -21,7 +21,7 @@ cron + bash,ruby,python and etc...
 
 ### <span style="color:yellow">Задание 3.</span>
 
-```
+```sql
 Двоичное ведение журнала MySQL
 
 log-bin="v:/dbbackup/db-bin-log"
