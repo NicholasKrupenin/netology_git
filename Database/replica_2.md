@@ -23,4 +23,4 @@
   Вертикальный шаринг: бд будут находится на одном сервере M-S.  
   ```
 
-![](/Database/img/replica_2_2.png)
+![](/Database/img/replica_2_3.png)
