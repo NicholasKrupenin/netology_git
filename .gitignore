@@ -2,5 +2,5 @@
 cache/
 terraform*
 .terraform/
-.terraform*
+.terraform.*
 *.tfvars
