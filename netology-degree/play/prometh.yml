@@ -1,0 +1,85 @@
+- hosts: prometheus 
+
+  vars_files:
+    - "{{ raw }}/raw_docker/var.yml"
+
+
+  # roles:
+  #   - cloudalchemy.prometheus
+  # vars:
+  #   prometheus_targets:
+  #     node:
+  #     - targets:
+  #       - ngnx1:9100
+
+
+  tasks:
+
+  - name: Template a file 
+    template:
+      src: "{{ raw }}/raw_docker/prometheus/{{ item }}.j2"
+      dest: /home/{{ ansible_user }}/{{ item }}.yml
+      owner: "{{ ansible_user }}"
+      mode: '0660'
+    loop:
+      - prometheus
+      - prometheus-docker
+
+
+  - name: Run DC
+    command: 
+      cmd: docker compose -f /home/{{ ansible_user }}/prometheus-docker.yml up -d
+  
+
+  # - name: update and install prometheus
+  #   yum:
+  #     name: prometheus
+  #     state: latest
+
+  # - name: prometheus args
+  #   template:
+  #     src: prometheus.j2
+  #     dest: /etc/default/prometheus
+  #     mode: 0644
+  #     owner: root
+  #     group: root
+  #   notify: restart_prometheus
+
+  # - name: prometheus configuration file
+  #   template:
+  #     src: /home/nw/degree/raw_docker/prometheus.yml.j2
+  #     dest: /etc/prometheus/prometheus.yml
+  #     mode: 0755
+  #     owner: prometheus
+  #     group: prometheus
+  #   notify: restart_prometheus
+  #   tags: yaya
+
+  # - name: start prometheus
+  #   systemd:
+  #     name: prometheus
+  #     state: started
+  #     enabled: yes
+
+  # handlers:
+
+  # - name: restart_prometheus
+  #   systemd:
+  #     name: prometheus
+  #     state: restarted
+  #     enabled: yes
+  #     daemon_reload: yes
+
+  # - name: reload_prometheus
+  #   uri:
+  #     url: http://localhost:9090/-/reload
+  #     method: POST
+  #     status_code: 200      
+
+  # - name: Run
+  #   community.docker.docker_compose:
+  #     project_src: /home/{{ ansible_user }}
+  #     files:
+  #       - docker-compose.yml
+
+

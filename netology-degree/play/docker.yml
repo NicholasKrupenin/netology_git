@@ -1,0 +1,72 @@
+- hosts: all
+  gather_facts: False
+  become: yes
+  vars:
+    mydistribution: "centos"
+
+  tasks:
+
+  - name: Add signing key
+    rpm_key:
+      key: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
+      state: present
+
+  - name: Add repository into repo.d list
+    yum_repository:
+      name: docker
+      description: docker repository
+      baseurl: "https://download.docker.com/linux/{{ mydistribution }}/$releasever/$basearch/stable"
+      enabled: true
+      gpgcheck: true
+      gpgkey: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
+
+  - name: Install Docker
+    yum:
+      name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-compose-plugin
+      state: latest
+      update_cache: true
+
+  - name: adding existing user "{{ ansible_user }}" to group docker
+    user:
+      name: "{{ ansible_user }}"
+      groups: docker
+      append: yes
+
+  - name: Start Docker
+    service:
+      name: "docker"
+      enabled: true
+      state: started
+
+
+
+
+
+
+  # - name: Add user in docker group
+  #   command: 
+  #     cmd: usermod -a -G docker "{{ ansible_user }}"
+
+
+  # - name: Download Docker script
+  #   get_url:
+  #     url: https://get.docker.com 
+  #     dest: /home/{{ ansible_user }}/get-docker.sh
+  #     owner: "{{ ansible_user }}"
+  #     mode: '0700'   
+
+  # - name: Run a script with arguments (using 'cmd' parameter)
+  #   script: /home/{{ ansible_user }}/get-docker.sh
+
+  # - name: Add user in docker group
+  #   command: 
+  #     cmd: usermod -a -G docker "{{ ansible_user }}"
+ 
+  # - name: Reload service in all cases
+  #   service:
+  #     name: docker
+  #     state: reloaded

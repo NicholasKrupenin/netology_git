@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 1m
+
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 1m
+    static_configs:
+    - targets: ["localhost:9090"]
+
+  - job_name: 'node'
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+        - {{nginx1}}:9100
+        - {{nginx2}}:9100
+
+  - job_name: 'nginx-exporter'
+    static_configs:
+      - targets:
+        - {{nginx1}}:9113
+        - {{nginx2}}:9113

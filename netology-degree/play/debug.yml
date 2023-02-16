@@ -1,0 +1,10 @@
+- hosts: all
+  gather_facts: False
+  become: yes
+
+  tasks:
+    - name: Editor for debag
+      yum:
+        name: vim
+        state: latest
+        

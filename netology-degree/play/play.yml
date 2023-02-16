@@ -1,0 +1,21 @@
+---
+  - name: Import a play Debug (hosts)
+    import_playbook: debug.yml
+  
+  - name: Import a play Docker
+    import_playbook: docker.yml
+
+  - name: Import a play Nginx
+    import_playbook: nginx.yml
+
+  - name: Import a play Prometheus
+    import_playbook: prometh.yml
+
+  - name: Import a play Elk
+    import_playbook: elk.yml
+
+  - name: Import a play Grafana
+    import_playbook: grafana.yml
+  
+  - name: Import a play Kibana
+    import_playbook: kibana.yml

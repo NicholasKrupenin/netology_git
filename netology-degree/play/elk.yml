@@ -1,0 +1,20 @@
+- hosts: elasticsearch
+
+  vars_files:
+    - "{{ raw }}/raw_docker/var.yml"
+
+  tasks:
+
+  - name: Template a file to "{{ ansible_hostname }}"
+    template:
+      src: "{{ raw }}/raw_docker/elasticsearch/{{ item }}.j2"
+      dest: /home/{{ ansible_user }}/{{ item }}.yml
+      owner: "{{ ansible_user }}"
+      mode: '0660'
+    loop:
+      - elk
+
+  - name: Run DC
+    command: 
+      cmd: docker compose -f /home/{{ ansible_user }}/elk.yml up -d
+  

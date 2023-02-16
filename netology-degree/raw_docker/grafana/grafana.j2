@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+    volumes:
+      - /home/{{ ansible_user }}/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+      - /home/{{ ansible_user }}/main.yml:/etc/grafana/provisioning/dashboards/main.yml
+      - /home/{{ ansible_user }}/grafana-dashboards/prometheus/:/var/lib/grafana/dashboards/
+    restart: unless-stopped

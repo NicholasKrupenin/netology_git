@@ -1,2 +1,6 @@
 *.pyc
 cache/
+terraform*
+.terraform/
+.terraform
+*.tfvars
