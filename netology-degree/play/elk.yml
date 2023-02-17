@@ -5,7 +5,7 @@
 
   tasks:
 
-  - name: Template a file to "{{ ansible_hostname }}"
+  - name: Template a file elk
     template:
       src: "{{ raw }}/raw_docker/elasticsearch/{{ item }}.j2"
       dest: /home/{{ ansible_user }}/{{ item }}.yml

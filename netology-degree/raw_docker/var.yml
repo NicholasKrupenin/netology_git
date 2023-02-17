@@ -1,0 +1,6 @@
+nginx1: 192.168.0.23 
+nginx2: 192.168.0.3
+prometheus: 192.168.0.28 
+kibana: 192.168.0.37
+elasticsearch: 192.168.0.8 
+grafana: 192.168.0.38

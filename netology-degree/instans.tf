@@ -111,7 +111,6 @@ resource "yandex_compute_instance" "elasticsearch" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.sub-1.id
-    nat = true
   }
 
  metadata = {
@@ -138,7 +137,6 @@ resource "yandex_compute_instance" "prometheus" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.sub-2.id
-    nat = true
   }
 
  metadata = {
